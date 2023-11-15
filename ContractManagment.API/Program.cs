@@ -107,11 +107,11 @@ app.UseAuthorization();
 });*/
 
 
-app.MapGet("/logout", async (HttpContext context) =>
-{
-    await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-    return "Данные удалены";
-});
+//app.MapGet("/logout", async (HttpContext context) =>
+//{
+//    await context.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+//    return "Данные удалены";
+//});
 
 app.MapControllers();
 
