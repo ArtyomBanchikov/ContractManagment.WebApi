@@ -2,9 +2,11 @@
 using ContractManagment.BLL.Models;
 using ContractManagment.BLL.Models.Client;
 using ContractManagment.BLL.Models.Post;
+using ContractManagment.BLL.Models.Record;
 using ContractManagment.DAL.Entities;
 using ContractManagment.DAL.Entities.Client;
 using ContractManagment.DAL.Entities.Post;
+using ContractManagment.DAL.Entities.Record;
 
 namespace ContractManagment.BLL.Mappers
 {
@@ -38,6 +40,12 @@ namespace ContractManagment.BLL.Mappers
 
             CreateMap<UserEntity, UserModel>();
             CreateMap<UserModel, UserEntity>();
+
+            CreateMap<RecordModel, RecordEntity>();
+            CreateMap<RecordEntity, RecordModel>();
+            
+            CreateMap<RecordKeyModel, RecordKeyEntity>();
+            CreateMap<RecordKeyEntity, RecordKeyModel>();
         }
     }
 }
