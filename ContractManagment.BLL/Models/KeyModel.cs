@@ -5,6 +5,6 @@
         public int Id { get; set; }
         public string Name { get; set; } = null!;
         public string Key { get; set; } = null!;
-        public List<ContractModel> Contracts { get; set; }
+        public List<ContractModel>? Contracts { get; set; }
     }
 }

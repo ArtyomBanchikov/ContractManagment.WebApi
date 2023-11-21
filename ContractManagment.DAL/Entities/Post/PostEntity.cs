@@ -12,7 +12,7 @@ namespace ContractManagment.DAL.Entities.Post
 
         [Column("post_type", TypeName = "varchar(20)")]
         public string Type { get; set; } = null!;
-        public List<PostMetaEntity> Meta { get; set; } = null!;
+        public List<PostMetaEntity>? Meta { get; set; }
 
         [Column("post_date")]
         public DateTime Date { get; set; }

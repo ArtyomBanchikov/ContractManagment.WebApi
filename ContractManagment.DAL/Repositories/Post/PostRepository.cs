@@ -11,9 +11,10 @@ namespace ContractManagment.DAL.Repositories.Post
         {
         }
 
-        public new async Task<IEnumerable<PostEntity>> GetAllAsync(CancellationToken token)
+        public override async Task<IEnumerable<PostEntity>> GetAllAsync(CancellationToken token)
         {
-            return await dbSet.Where(r => r.Type == "post_user_request").AsNoTracking().ToListAsync(token);
+            List<PostEntity> posts = await dbSet.Where(r => r.Type == "post_user_request").AsNoTracking().ToListAsync();
+            return posts.OrderByDescending(post => post.Date);
         }
     }
 }

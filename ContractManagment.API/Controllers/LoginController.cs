@@ -3,8 +3,9 @@ using ContractManagment.API.ViewModel.User;
 using ContractManagment.BLL.Interfaces;
 using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.BLL.Models;
-using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
@@ -28,27 +29,29 @@ namespace ContractManagment.API.Controllers
         [HttpPost("/login")]
         public async Task<LoginUserViewModel> Login(ShortUserViewModel userVM, CancellationToken ct)
         {
-            
-            //UserViewModel userDB = _mapper.Map<UserViewModel>(_service.GetAllAsync(ct).Result.FirstOrDefault(u => u.Name == userVM.Name));
-            //if (userDB == null || userVM.Password != userDB.Password)
-            //    return Results.Unauthorized();
-            
-            //var claims = new List<Claim> { new(ClaimTypes.Name, userVM.Name), new(ClaimTypes.Role, userVM.Role) };
-            //var claimsIdentity = new ClaimsIdentity(claims, "Cookies");
-            //var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
-            //await HttpContext.SignInAsync(claimsPrincipal);
-            //return Results.Accepted();
-            var claims = new List<Claim> { new Claim(ClaimTypes.Name, userVM.Name), new Claim(ClaimTypes.Role, "admin") };
-            var jwt = new JwtSecurityToken(
-                    issuer: "MyAuthServer",
-                    audience: "MyAuthClient",
-                    claims: claims,
-                    expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
-                    signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mysupersecret_secretkey!123")), SecurityAlgorithms.HmacSha256));
-            string token = new JwtSecurityTokenHandler().WriteToken(jwt);
-            LoginUserViewModel loginUser = _mapper.Map<LoginUserViewModel>(userVM);
-            loginUser.Token = token;
-            return loginUser;
+            UserViewModel userDB = _mapper.Map<UserViewModel>((await _service.GetAllAsync(ct)).First(u => u.Name == userVM.Name));
+            IPasswordHasher hasher = new PasswordHasher();
+            Microsoft.AspNet.Identity.PasswordVerificationResult result = hasher.VerifyHashedPassword(userDB.Password, userVM.Password);
+            switch(result)
+            {
+                case Microsoft.AspNet.Identity.PasswordVerificationResult.Success:
+                    {
+                        var claims = new List<Claim> { new Claim(ClaimTypes.Name, userDB.Name), new Claim(ClaimTypes.Role, userDB.Role) };
+                        var jwt = new JwtSecurityToken(
+                                issuer: "MyAuthServer",
+                                audience: "MyAuthClient",
+                                claims: claims,
+                                expires: DateTime.UtcNow.Add(TimeSpan.FromDays(6)),
+                                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("mysupersecret_secretkey!123")), SecurityAlgorithms.HmacSha256));
+                        string token = new JwtSecurityTokenHandler().WriteToken(jwt);
+                        LoginUserViewModel loginUser = _mapper.Map<LoginUserViewModel>(userVM);
+                        loginUser.Token = token;
+                        loginUser.Role = userDB.Role;
+                        return loginUser;
+                    }
+                default:
+                    throw new UnauthorizedAccessException();
+            }
         }
 
         [Authorize]

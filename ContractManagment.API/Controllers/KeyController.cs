@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using ContractManagment.API.ViewModel;
-using ContractManagment.BLL.Interfaces.Generic;
+using ContractManagment.BLL.Interfaces;
 using ContractManagment.BLL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +12,10 @@ namespace ContractManagment.API.Controllers
     [Authorize]
     public class KeyController : Controller
     {
-        private readonly IGenericService<KeyModel> _service;
+        private readonly IKeyService _service;
         protected readonly IMapper _mapper;
 
-        public KeyController(IGenericService<KeyModel> service, IMapper mapper)
+        public KeyController(IKeyService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

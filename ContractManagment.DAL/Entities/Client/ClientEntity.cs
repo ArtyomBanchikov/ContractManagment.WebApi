@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContractManagment.DAL.Entities.Client
 {
@@ -38,6 +33,12 @@ namespace ContractManagment.DAL.Entities.Client
         [Column("building")]
         public string Building { get; set; }
 
-        public List<ClientAddParamEntity> Params { get; set; }
+        [Column("actual_address", TypeName = "text")]
+        public string Street { get; set; }
+
+        [Column("floor")]
+        public string Floor { get; set; }
+
+        public List<ClientAddParamEntity>? Params { get; set; }
     }
 }
