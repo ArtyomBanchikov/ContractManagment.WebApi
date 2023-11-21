@@ -2,10 +2,12 @@
 using ContractManagment.DAL.Entities;
 using ContractManagment.DAL.Entities.Client;
 using ContractManagment.DAL.Entities.Post;
+using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Interfaces;
 using ContractManagment.DAL.Repositories;
 using ContractManagment.DAL.Repositories.Client;
 using ContractManagment.DAL.Repositories.Post;
+using ContractManagment.DAL.Repositories.Record;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,6 +30,9 @@ namespace ContractManagment.DAL.DI
             services.AddScoped<IGenericRepository<KeyEntity>, KeyRepository>();
             services.AddScoped<IGenericRepository<ContractEntity>, ContractRepository>();
             services.AddScoped<IContractKeyRepository, ContractKeyRepository>();
+
+            services.AddScoped<IGenericRepository<RecordEntity>, RecordRepository>();
+            services.AddScoped<IGenericRepository<RecordKeyEntity>, RecordKeyRepository>();
 
             services.AddScoped<IGenericReadRepository<PostEntity>, PostRepository>();
             services.AddScoped<IGenericReadRepository<PostMetaEntity>, PostMetaRepository>();
