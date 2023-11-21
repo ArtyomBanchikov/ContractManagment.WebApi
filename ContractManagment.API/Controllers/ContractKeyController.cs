@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ContractManagment.API.ViewModel;
+using ContractManagment.BLL.Interfaces;
 using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.BLL.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -9,13 +10,13 @@ namespace ContractManagment.API.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
-    [Authorize]
+    //[Authorize]
     public class ContractKeyController : Controller
     {
-        private readonly IGenericService<ContractKeyModel> _service;
+        private readonly IContractKeyService _service;
         protected readonly IMapper _mapper;
 
-        public ContractKeyController(IGenericService<ContractKeyModel> service, IMapper mapper)
+        public ContractKeyController(IContractKeyService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

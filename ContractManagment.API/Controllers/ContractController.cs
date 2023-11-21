@@ -14,10 +14,10 @@ namespace ContractManagment.API.Controllers
     [Authorize]
     public class ContractController : Controller
     {
-        private readonly IGenericService<ContractModel> _service;
+        private readonly IContractService _service;
         protected readonly IMapper _mapper;
 
-        public ContractController(IGenericService<ContractModel> service, IMapper mapper)
+        public ContractController(IContractService service, IMapper mapper)
         {
             _service = service;
             _mapper = mapper;

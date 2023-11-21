@@ -8,7 +8,7 @@ namespace ContractManagment.DAL.Entities
         [Key]
         public int Id { get; set; }
         public string Name { get; set; } = null!;
-        public List<KeyEntity> Keys { get; set; }
+        public List<KeyEntity>? Keys { get; set; }
         public byte[] Value { get; set; } = null!;
     }
 }

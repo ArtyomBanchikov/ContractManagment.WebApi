@@ -10,7 +10,7 @@ namespace ContractManagment.API.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
-    //[Authorize(Roles ="admin")]
+    [Authorize(Roles ="admin")]
     public class UserController : GenericController<UserModel, UserViewModel>
     {
         public UserController(IUserService userService, IMapper mapper) : base(userService, mapper)

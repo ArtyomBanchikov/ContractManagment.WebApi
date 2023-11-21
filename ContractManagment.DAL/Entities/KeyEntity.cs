@@ -8,6 +8,6 @@ namespace ContractManagment.DAL.Entities
         public int Id {  get; set; }
         public string Name { get; set; } = null!;
         public string Key { get; set; } = null!;
-        public List<ContractEntity> Contracts { get; set; }
+        public List<ContractEntity>? Contracts { get; set; }
     }
 }

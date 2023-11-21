@@ -18,7 +18,7 @@ namespace ContractManagment.DAL.Repositories.Generic
 
         public virtual async Task<IEnumerable<TEntity>> GetAllAsync(CancellationToken token)
         {
-            return await dbSet.AsNoTracking().ToListAsync(token);
+            return await dbSet.ToListAsync(token);
         }
 
         public virtual async Task<TEntity> CreateAsync(TEntity entity, CancellationToken token)

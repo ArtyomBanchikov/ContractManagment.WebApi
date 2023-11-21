@@ -13,6 +13,6 @@ namespace ContractManagment.DAL.Entities.Record
         public int RecordId { get; set; }
 
         [ForeignKey("RecordId")]
-        public RecordEntity Record { get; set; }
+        public RecordEntity? Record { get; set; }
     }
 }

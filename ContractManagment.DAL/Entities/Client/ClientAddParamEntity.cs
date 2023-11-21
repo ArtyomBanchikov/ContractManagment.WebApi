@@ -12,12 +12,12 @@ namespace ContractManagment.DAL.Entities.Client
         public int userid { get; set; }
 
         [ForeignKey("userid")]
-        public ClientEntity Client { get; set; }
+        public ClientEntity? Client { get; set; }
 
         public int paramid { get; set; }
 
         [ForeignKey("paramid")]
-        public AdditionalParameterEntity Parameter { get; set; }
+        public AdditionalParameterEntity? Parameter { get; set; }
 
         [Column("value")]
         public string Value { get; set; }
