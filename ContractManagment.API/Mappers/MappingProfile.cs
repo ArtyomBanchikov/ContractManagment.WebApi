@@ -2,10 +2,12 @@
 using ContractManagment.API.ViewModel;
 using ContractManagment.API.ViewModel.Client;
 using ContractManagment.API.ViewModel.PostViewModels;
+using ContractManagment.API.ViewModel.Record;
 using ContractManagment.API.ViewModel.User;
 using ContractManagment.BLL.Models;
 using ContractManagment.BLL.Models.Client;
 using ContractManagment.BLL.Models.Post;
+using ContractManagment.BLL.Models.Record;
 
 namespace ContractManagment.API.Mappers
 {
@@ -27,6 +29,12 @@ namespace ContractManagment.API.Mappers
 
             CreateMap<ContractKeyModel, ContractKeyViewModel>();
             CreateMap<ContractKeyViewModel, ContractKeyModel>();
+
+            CreateMap<RecordViewModel, RecordModel>();
+            CreateMap<RecordModel, RecordViewModel>();
+
+            CreateMap<RecordKeyViewModel, RecordKeyModel>();
+            CreateMap<RecordKeyModel, RecordKeyViewModel>();
 
             CreateMap<ClientModel, ClientViewModel>();
             CreateMap<ClientViewModel, ClientModel>();
