@@ -1,4 +1,5 @@
 ﻿using ContractManagment.DAL.Entities;
+using ContractManagment.DAL.Entities.Record;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContractManagment.DAL.EF
@@ -9,6 +10,8 @@ namespace ContractManagment.DAL.EF
         public DbSet<ContractEntity> Contracts { get; set; } = null!;
         public DbSet<UserEntity> Users { get; set; } = null!;
         public DbSet<ContractKeyEntity> ContractKeys { get; set; } = null!;
+        public DbSet<RecordEntity> Records { get; set; } = null!;
+        public DbSet<RecordKeyEntity> RecordsKeys { get; set; } = null!;
 
         public ManagmentContext(DbContextOptions<ManagmentContext> options) : base(options)
         {
@@ -40,6 +43,10 @@ namespace ContractManagment.DAL.EF
                 .UsingEntity<ContractKeyEntity>(
                 l => l.HasOne(e => e.Key).WithMany(),
                 r => r.HasOne(e => e.Contract).WithMany());
+
+            modelBuilder.Entity<RecordEntity>()
+                .HasMany(r => r.RecordKeys)
+                .WithOne(k => k.Record);
         }
     }
 }
