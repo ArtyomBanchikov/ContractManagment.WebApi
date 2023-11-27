@@ -1,6 +1,6 @@
-﻿namespace ContractManagment.BLL.Models.Client
+﻿namespace ContractManagment.BLL.Models.ClientDigital
 {
-    public class AdditionalParameterModel
+    public class DigitalAddParamModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

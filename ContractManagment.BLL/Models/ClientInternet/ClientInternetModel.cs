@@ -1,6 +1,6 @@
-﻿namespace ContractManagment.BLL.Models.Client
+﻿namespace ContractManagment.BLL.Models.ClientInternet
 {
-    public class ClientModel
+    public class ClientInternetModel
     {
         public int Id { get; set; }
         public string FullName { get; set; }
@@ -13,6 +13,6 @@
         public string Building { get; set; }
         public string Street { get; set; }
         public string Floor { get; set; }
-        public List<ClientAddParamModel>? Params { get; set; }
+        public List<ClientInternetAddParamModel>? Params { get; set; }
     }
 }
