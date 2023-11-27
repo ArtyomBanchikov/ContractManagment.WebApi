@@ -1,11 +1,13 @@
 ﻿using ContractManagment.DAL.EF;
 using ContractManagment.DAL.Entities;
-using ContractManagment.DAL.Entities.Client;
+using ContractManagment.DAL.Entities.ClientDigital;
+using ContractManagment.DAL.Entities.ClientInternet;
 using ContractManagment.DAL.Entities.Post;
 using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Interfaces;
 using ContractManagment.DAL.Repositories;
-using ContractManagment.DAL.Repositories.Client;
+using ContractManagment.DAL.Repositories.ClientDigital;
+using ContractManagment.DAL.Repositories.ClientInternet;
 using ContractManagment.DAL.Repositories.Post;
 using ContractManagment.DAL.Repositories.Record;
 using Microsoft.EntityFrameworkCore;
@@ -24,8 +26,11 @@ namespace ContractManagment.DAL.DI
             var wpConnection = configuration.GetConnectionString("WPConnection");
             services.AddDbContext<WPContext>(c => c.UseMySql(wpConnection, new MySqlServerVersion(new Version(8, 0, 34))));
 
-            var billingConnection = configuration.GetConnectionString("BillingConnection");
-            services.AddDbContext<BillingContext>(c => c.UseMySql(billingConnection, new MySqlServerVersion(new Version(8, 0, 34))));
+            var billingInternetConnection = configuration.GetConnectionString("BillingInternetConnection");
+            services.AddDbContext<BillingInternetContext>(c => c.UseMySql(billingInternetConnection, new MySqlServerVersion(new Version(8, 0, 34))));
+
+            var billingDigitalConnection = configuration.GetConnectionString("BillingDigitalConnection");
+            services.AddDbContext<BillingDigitalContext>(c => c.UseMySql(billingInternetConnection, new MySqlServerVersion(new Version(8, 0, 34))));
 
             services.AddScoped<IGenericRepository<KeyEntity>, KeyRepository>();
             services.AddScoped<IGenericRepository<ContractEntity>, ContractRepository>();
@@ -37,9 +42,13 @@ namespace ContractManagment.DAL.DI
             services.AddScoped<IGenericReadRepository<PostEntity>, PostRepository>();
             services.AddScoped<IGenericReadRepository<PostMetaEntity>, PostMetaRepository>();
 
-            services.AddScoped<IGenericReadRepository<ClientEntity>, ClientRepository>();
-            services.AddScoped<IGenericReadRepository<AdditionalParameterEntity>, AdditionalParameterRepository>();
-            services.AddScoped<IGenericReadRepository<ClientAddParamEntity>, ClientAddParamRepository>();
+            services.AddScoped<IGenericReadRepository<ClientInternetEntity>, ClientInterntRepository>();
+            services.AddScoped<IGenericReadRepository<InternetAddParamEntity>, InternetAddParamRepository>();
+            services.AddScoped<IGenericReadRepository<ClientInternetAddParamEntity>, ClientInternetAddParamRepository>();
+
+            services.AddScoped<IGenericReadRepository<ClientDigitalEntity>, ClientDigitalRepository>();
+            services.AddScoped<IGenericReadRepository<DigitalAddParamEntity>, DigitalAddParamRepository>();
+            services.AddScoped<IGenericReadRepository<ClientDigitalAddParamEntity>, ClientDigitalAddParamRepository>();
 
             services.AddScoped<IGenericRepository<UserEntity>, UserRepository>();
 
