@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace ContractManagment.DAL.Entities.Client
+namespace ContractManagment.DAL.Entities.ClientDigital
 {
     [Table("uaddparams_desc")]
-    public class AdditionalParameterEntity
+    public class DigitalAddParamEntity
     {
         [Column("paramid"), Key]
         public int Id { get; set; }

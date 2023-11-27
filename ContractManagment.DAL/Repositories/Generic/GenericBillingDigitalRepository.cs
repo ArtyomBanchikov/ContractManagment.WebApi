@@ -4,13 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractManagment.DAL.Repositories.Generic
 {
-    public class GenericBillingRepository<TEntity> : IGenericReadRepository<TEntity> where TEntity : class
+    public class GenericBillingDigitalRepository<TEntity> : IGenericReadRepository<TEntity> where TEntity : class
     {
-        protected readonly BillingContext context;
+        protected readonly BillingDigitalContext context;
 
         protected readonly DbSet<TEntity> dbSet;
 
-        public GenericBillingRepository(BillingContext context)
+        public GenericBillingDigitalRepository(BillingDigitalContext context)
         {
             this.context = context;
             dbSet = context.Set<TEntity>();

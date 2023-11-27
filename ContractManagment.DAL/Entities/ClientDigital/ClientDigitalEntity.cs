@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace ContractManagment.DAL.Entities.Client
+namespace ContractManagment.DAL.Entities.ClientDigital
 {
     [Table("users")]
-    public class ClientEntity
+    public class ClientDigitalEntity
     {
         [Column("id"), Key]
         public int Id { get; set; }
@@ -25,7 +25,7 @@ namespace ContractManagment.DAL.Entities.Client
         public string HomePhone { get; set; }
 
         [Column("flat_number")]
-        public string Flat {  get; set; }
+        public string Flat { get; set; }
 
         [Column("entrance")]
         public string Entrance { get; set; }
@@ -39,6 +39,6 @@ namespace ContractManagment.DAL.Entities.Client
         [Column("floor")]
         public string Floor { get; set; }
 
-        public List<ClientAddParamEntity>? Params { get; set; }
+        public List<ClientDigitalAddParamEntity>? Params { get; set; }
     }
 }

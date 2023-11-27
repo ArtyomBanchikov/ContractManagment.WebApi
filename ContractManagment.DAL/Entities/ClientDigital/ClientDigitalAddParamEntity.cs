@@ -1,10 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 
-namespace ContractManagment.DAL.Entities.Client
+namespace ContractManagment.DAL.Entities.ClientDigital
 {
     [Table("user_additional_params")]
-    public class ClientAddParamEntity
+    public class ClientDigitalAddParamEntity
     {
         [Column("id"), Key]
         public int Id { get; set; }
@@ -12,12 +12,12 @@ namespace ContractManagment.DAL.Entities.Client
         public int userid { get; set; }
 
         [ForeignKey("userid")]
-        public ClientEntity? Client { get; set; }
+        public ClientDigitalEntity? Client { get; set; }
 
         public int paramid { get; set; }
 
         [ForeignKey("paramid")]
-        public AdditionalParameterEntity? Parameter { get; set; }
+        public DigitalAddParamEntity? Parameter { get; set; }
 
         [Column("value")]
         public string Value { get; set; }
