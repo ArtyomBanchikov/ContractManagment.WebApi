@@ -1,11 +1,13 @@
 ﻿using AutoMapper;
 using ContractManagment.API.ViewModel;
-using ContractManagment.API.ViewModel.Client;
+using ContractManagment.API.ViewModel.ClientDigital;
+using ContractManagment.API.ViewModel.ClientInternet;
 using ContractManagment.API.ViewModel.PostViewModels;
 using ContractManagment.API.ViewModel.Record;
 using ContractManagment.API.ViewModel.User;
 using ContractManagment.BLL.Models;
-using ContractManagment.BLL.Models.Client;
+using ContractManagment.BLL.Models.ClientDigital;
+using ContractManagment.BLL.Models.ClientInternet;
 using ContractManagment.BLL.Models.Post;
 using ContractManagment.BLL.Models.Record;
 
@@ -36,16 +38,29 @@ namespace ContractManagment.API.Mappers
             CreateMap<RecordKeyViewModel, RecordKeyModel>();
             CreateMap<RecordKeyModel, RecordKeyViewModel>();
 
-            CreateMap<ClientModel, ClientViewModel>();
-            CreateMap<ClientViewModel, ClientModel>();
+            CreateMap<ClientInternetModel, ClientInternetViewModel>();
+            CreateMap<ClientInternetViewModel, ClientInternetModel>();
 
-            CreateMap<AdditionalParameterModel, AdditionalParameterViewModel>();
-            CreateMap<AdditionalParameterViewModel, AdditionalParameterModel>();
+            CreateMap<InternetAddParamModel, InternetAddParamViewModel>();
+            CreateMap<InternetAddParamViewModel, InternetAddParamModel>();
 
-            CreateMap<ClientAddParamModel, ClientAddParamViewModel>()
+            CreateMap<ClientInternetAddParamModel, ClientInternetAddParamViewModel>()
                 .ForMember(x => x.ClientId, o => o.MapFrom(p => p.userid))
                 .ForMember(x => x.ParamId, o => o.MapFrom(p => p.paramid));
-            CreateMap<ClientAddParamViewModel, ClientAddParamModel>()
+            CreateMap<ClientInternetAddParamViewModel, ClientInternetAddParamModel>()
+                .ForMember(x => x.userid, o => o.MapFrom(p => p.ClientId))
+                .ForMember(x => x.paramid, o => o.MapFrom(p => p.ParamId));
+
+            CreateMap<ClientDigitalModel, ClientDigitalViewModel>();
+            CreateMap<ClientDigitalViewModel, ClientDigitalModel>();
+
+            CreateMap<DigitalAddParamModel, DigitalAddParamViewModel>();
+            CreateMap<DigitalAddParamViewModel, DigitalAddParamModel>();
+
+            CreateMap<ClientDigitalAddParamModel, ClientDigitalAddParamViewModel>()
+                .ForMember(x => x.ClientId, o => o.MapFrom(p => p.userid))
+                .ForMember(x => x.ParamId, o => o.MapFrom(p => p.paramid));
+            CreateMap<ClientDigitalAddParamViewModel, ClientDigitalAddParamModel>()
                 .ForMember(x => x.userid, o => o.MapFrom(p => p.ClientId))
                 .ForMember(x => x.paramid, o => o.MapFrom(p => p.ParamId));
 
