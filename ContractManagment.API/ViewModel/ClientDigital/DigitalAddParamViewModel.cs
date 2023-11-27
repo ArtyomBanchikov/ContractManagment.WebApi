@@ -1,6 +1,6 @@
-﻿namespace ContractManagment.API.ViewModel.Client
+﻿namespace ContractManagment.API.ViewModel.ClientDigital
 {
-    public class AdditionalParameterViewModel
+    public class DigitalAddParamViewModel
     {
         public int Id { get; set; }
         public string Name { get; set; }

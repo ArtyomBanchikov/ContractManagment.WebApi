@@ -1,6 +1,6 @@
-﻿namespace ContractManagment.API.ViewModel.Client
+﻿namespace ContractManagment.API.ViewModel.ClientInternet
 {
-    public class ClientViewModel
+    public class ClientInternetViewModel
     {
         public int Id { get; set; }
         public string FullName { get; set; }
@@ -13,6 +13,6 @@
         public string Building { get; set; }
         public string Street { get; set; }
         public string Floor { get; set; }
-        public List<ClientAddParamViewModel> Params { get; set; }
+        public List<ClientInternetAddParamViewModel> Params { get; set; }
     }
 }
