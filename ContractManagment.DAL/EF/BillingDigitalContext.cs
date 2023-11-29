@@ -8,6 +8,8 @@ namespace ContractManagment.DAL.EF
         public DbSet<ClientDigitalEntity> ClientsDigital { get; set; } = null!;
         public DbSet<DigitalAddParamEntity> DigitalParameters { get; set; } = null!;
         public DbSet<ClientDigitalAddParamEntity> DigitalAdditionalParameters { get; set; } = null!;
+        public DbSet<AccountTariffDigitalEntity> AccountTariffsDigital { get; set; } = null!;
+        public DbSet<TariffDigitalEntity> TariffsDigital { get; set; } = null!;
         public BillingDigitalContext(DbContextOptions<BillingDigitalContext> options) : base(options)
         {
             Database.EnsureCreated();

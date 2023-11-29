@@ -39,6 +39,9 @@ namespace ContractManagment.DAL.Entities.ClientDigital
         [Column("floor")]
         public string Floor { get; set; }
 
+        [Column("login")]
+        public string NCamModul { get; set; }
+
         public List<ClientDigitalAddParamEntity>? Params { get; set; }
     }
 }

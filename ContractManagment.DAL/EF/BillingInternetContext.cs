@@ -8,6 +8,8 @@ namespace ContractManagment.DAL.EF
         public DbSet<ClientInternetEntity> ClientsInternet { get; set; } = null!;
         public DbSet<InternetAddParamEntity> InternetParameters { get; set; } = null!;
         public DbSet<ClientInternetAddParamEntity> InternetAdditionalParameters { get; set; } = null!;
+        public DbSet<AccountTariffInternetEntity> AccountTariffsInternet { get; set; } = null!;
+        public DbSet<TariffInternetEntity> TariffsInternet { get; set; } = null!;
         public BillingInternetContext(DbContextOptions<BillingInternetContext> options) : base(options)
         {
             Database.EnsureCreated();

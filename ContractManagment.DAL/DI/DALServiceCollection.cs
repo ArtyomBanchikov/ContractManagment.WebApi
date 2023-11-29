@@ -30,7 +30,7 @@ namespace ContractManagment.DAL.DI
             services.AddDbContext<BillingInternetContext>(c => c.UseMySql(billingInternetConnection, new MySqlServerVersion(new Version(8, 0, 34))));
 
             var billingDigitalConnection = configuration.GetConnectionString("BillingDigitalConnection");
-            services.AddDbContext<BillingDigitalContext>(c => c.UseMySql(billingInternetConnection, new MySqlServerVersion(new Version(8, 0, 34))));
+            services.AddDbContext<BillingDigitalContext>(c => c.UseMySql(billingDigitalConnection, new MySqlServerVersion(new Version(8, 0, 34))));
 
             services.AddScoped<IGenericRepository<KeyEntity>, KeyRepository>();
             services.AddScoped<IGenericRepository<ContractEntity>, ContractRepository>();
@@ -42,10 +42,14 @@ namespace ContractManagment.DAL.DI
             services.AddScoped<IGenericReadRepository<PostEntity>, PostRepository>();
             services.AddScoped<IGenericReadRepository<PostMetaEntity>, PostMetaRepository>();
 
+            services.AddScoped<IGenericReadRepository<AccountTariffInternetEntity>, AccountTariffInternetRepository>();
+            services.AddScoped<IGenericReadRepository<TariffInternetEntity>, TariffInternetRepository>();
             services.AddScoped<IGenericReadRepository<ClientInternetEntity>, ClientInterntRepository>();
             services.AddScoped<IGenericReadRepository<InternetAddParamEntity>, InternetAddParamRepository>();
             services.AddScoped<IGenericReadRepository<ClientInternetAddParamEntity>, ClientInternetAddParamRepository>();
 
+            services.AddScoped<IGenericReadRepository<AccountTariffDigitalEntity>, AccountTariffDigitalRepository>();
+            services.AddScoped<IGenericReadRepository<TariffDigitalEntity>, TariffDigitalRepository>();
             services.AddScoped<IGenericReadRepository<ClientDigitalEntity>, ClientDigitalRepository>();
             services.AddScoped<IGenericReadRepository<DigitalAddParamEntity>, DigitalAddParamRepository>();
             services.AddScoped<IGenericReadRepository<ClientDigitalAddParamEntity>, ClientDigitalAddParamRepository>();
