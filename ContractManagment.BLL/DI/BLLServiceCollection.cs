@@ -28,10 +28,14 @@ namespace ContractManagment.BLL.DI
             services.AddScoped<IRecordKeyService, RecordKeyService>();
             services.AddScoped<IRecordService, RecordService>();
 
+            services.AddScoped<IAccountTariffInternetService, AccountTariffInternetService>();
+            services.AddScoped<ITariffInternetService, TariffInternetService>();
             services.AddScoped<IClientInternetService, ClientInternetService>();
             services.AddScoped<IInternetAddParamService, InternetAddParamService>();
             services.AddScoped<IClientInternetAddParamService, ClientInternetAddParamService>();
 
+            services.AddScoped<IAccountTariffDigitalService, AccountTariffDigitalService>();
+            services.AddScoped<ITariffDigitalService, TariffDigitalService>();
             services.AddScoped<IClientDigitalService, ClientDigitalService>();
             services.AddScoped<IDigitalAddParamService, DigitalAddParamService>();
             services.AddScoped<IClientDigitalAddParamService, ClientDigitalAddParamService>();
