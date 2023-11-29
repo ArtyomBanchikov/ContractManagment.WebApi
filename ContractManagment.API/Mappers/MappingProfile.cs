@@ -38,6 +38,12 @@ namespace ContractManagment.API.Mappers
             CreateMap<RecordKeyViewModel, RecordKeyModel>();
             CreateMap<RecordKeyModel, RecordKeyViewModel>();
 
+            CreateMap<AccountTariffInternetModel, AccountTariffDigitalViewModel>();
+            CreateMap<AccountTariffInternetViewModel, AccountTariffInternetModel>();
+
+            CreateMap<TariffInternetViewModel, TariffInternetModel>();
+            CreateMap<TariffInternetModel, TariffInternetViewModel>();
+
             CreateMap<ClientInternetModel, ClientInternetViewModel>();
             CreateMap<ClientInternetViewModel, ClientInternetModel>();
 
@@ -50,6 +56,12 @@ namespace ContractManagment.API.Mappers
             CreateMap<ClientInternetAddParamViewModel, ClientInternetAddParamModel>()
                 .ForMember(x => x.userid, o => o.MapFrom(p => p.ClientId))
                 .ForMember(x => x.paramid, o => o.MapFrom(p => p.ParamId));
+
+            CreateMap<AccountTariffDigitalViewModel, AccountTariffDigitalModel>();
+            CreateMap<AccountTariffDigitalModel, AccountTariffDigitalViewModel>();
+
+            CreateMap<TariffDigitalViewModel, TariffDigitalModel>();
+            CreateMap<TariffDigitalModel, TariffDigitalViewModel>();
 
             CreateMap<ClientDigitalModel, ClientDigitalViewModel>();
             CreateMap<ClientDigitalViewModel, ClientDigitalModel>();
