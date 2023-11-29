@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
-using ContractManagment.API.Controllers.Generic;
 using ContractManagment.API.ViewModel;
 using ContractManagment.BLL.Interfaces;
-using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.BLL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,7 +38,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task CreateAsync([FromBody] ContractViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<ContractModel>(tViewModel);
@@ -48,7 +46,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task UpdateAsync(int id, [FromBody] ContractViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<ContractModel>(tViewModel);
@@ -56,7 +54,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken)
         {
             await _service.DeleteByIdAsync(id, cancellationToken);

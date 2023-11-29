@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using ContractManagment.API.ViewModel;
 using ContractManagment.BLL.Interfaces;
-using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.BLL.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -10,7 +9,7 @@ namespace ContractManagment.API.Controllers
 {
     [ApiController]
     [Route("[Controller]")]
-    //[Authorize]
+    [Authorize]
     public class ContractKeyController : Controller
     {
         private readonly IContractKeyService _service;
@@ -31,7 +30,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task CreateAsync([FromBody] ContractKeyViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<ContractKeyModel>(tViewModel);
@@ -39,7 +38,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task UpdateAsync(int id, [FromBody] ContractKeyViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<ContractKeyModel>(tViewModel);
