@@ -13,6 +13,7 @@
         public string Building { get; set; }
         public string Street { get; set; }
         public string Floor { get; set; }
+        public int ConnectDate { get; set; }
         public List<ClientInternetAddParamModel>? Params { get; set; }
     }
 }
