@@ -1,11 +1,5 @@
-﻿using ContractManagment.DAL.Entities;
-using ContractManagment.DAL.Entities.Post;
+﻿using ContractManagment.DAL.Entities.Post;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ContractManagment.DAL.EF
 {

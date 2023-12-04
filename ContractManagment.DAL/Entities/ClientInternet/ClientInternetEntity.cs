@@ -39,6 +39,8 @@ namespace ContractManagment.DAL.Entities.ClientInternet
         [Column("floor")]
         public string Floor { get; set; }
 
+        [Column("connect_date")]
+        public int ConnectDate { get; set; }
         public List<ClientInternetAddParamEntity>? Params { get; set; }
     }
 }

@@ -38,7 +38,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task CreateAsync([FromBody] KeyViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<KeyModel>(tViewModel);
@@ -46,7 +46,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task UpdateAsync(int id, [FromBody] KeyViewModel tViewModel, CancellationToken cancellationToken)
         {
             var tModel = _mapper.Map<KeyModel>(tViewModel);
@@ -54,7 +54,7 @@ namespace ContractManagment.API.Controllers
         }
 
         [HttpDelete("{id}")]
-        [Authorize(Roles = "admin")]
+        [Authorize(Roles = "admin, manager")]
         public async Task DeleteByIdAsync(int id, CancellationToken cancellationToken)
         {
             await _service.DeleteByIdAsync(id, cancellationToken);

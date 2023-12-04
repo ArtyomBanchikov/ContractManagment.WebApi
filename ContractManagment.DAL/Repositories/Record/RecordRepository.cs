@@ -1,11 +1,7 @@
 ﻿using ContractManagment.DAL.EF;
 using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Repositories.Generic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContractManagment.DAL.Repositories.Record
 {
@@ -13,6 +9,15 @@ namespace ContractManagment.DAL.Repositories.Record
     {
         public RecordRepository(ManagmentContext context) : base(context)
         {
+        }
+        public override async Task<IEnumerable<RecordEntity>> GetAllAsync(CancellationToken token)
+        {
+            return await dbSet.OrderByDescending(record => record.Time).ToListAsync();
+        }
+        public override async Task<RecordEntity> CreateAsync(RecordEntity entity, CancellationToken token)
+        {
+            entity.Time = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Europe/Minsk");
+            return await base.CreateAsync(entity, token);
         }
     }
 }

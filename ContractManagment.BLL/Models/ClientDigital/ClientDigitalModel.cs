@@ -13,6 +13,8 @@
         public string Building { get; set; }
         public string Street { get; set; }
         public string Floor { get; set; }
+        public string NCamModul { get; set; }
+        public int ConnectDate { get; set; }
         public List<ClientDigitalAddParamModel>? Params { get; set; }
     }
 }

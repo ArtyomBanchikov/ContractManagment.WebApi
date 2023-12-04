@@ -31,6 +31,12 @@ namespace ContractManagment.BLL.Mappers
             CreateMap<PostMetaEntity, PostMetaModel>();
             CreateMap<PostMetaModel, PostMetaEntity>();
 
+            CreateMap<AccountTariffInternetModel, AccountTariffDigitalEntity>();
+            CreateMap<AccountTariffInternetEntity, AccountTariffInternetModel>();
+
+            CreateMap<TariffInternetEntity,  TariffInternetModel>();
+            CreateMap<TariffInternetModel, TariffInternetEntity>();
+
             CreateMap<ClientInternetEntity, ClientInternetModel>();
             CreateMap<ClientInternetModel, ClientInternetEntity>();
 
@@ -39,6 +45,12 @@ namespace ContractManagment.BLL.Mappers
 
             CreateMap<InternetAddParamEntity, InternetAddParamModel>();
             CreateMap<InternetAddParamModel, InternetAddParamEntity>();
+
+            CreateMap<AccountTariffDigitalEntity, AccountTariffDigitalModel>();
+            CreateMap<AccountTariffDigitalModel, AccountTariffDigitalEntity>();
+
+            CreateMap<TariffDigitalEntity, TariffDigitalModel>();
+            CreateMap<TariffDigitalModel, TariffDigitalEntity>();
 
             CreateMap<ClientDigitalEntity, ClientDigitalModel>();
             CreateMap<ClientDigitalModel, ClientDigitalEntity>();
