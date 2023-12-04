@@ -13,7 +13,7 @@ namespace ContractManagment.DAL.Repositories.Post
 
         public override async Task<IEnumerable<PostEntity>> GetAllAsync(CancellationToken token)
         {
-            List<PostEntity> posts = await dbSet.Where(r => r.Type == "post_user_request").AsNoTracking().ToListAsync();
+            List<PostEntity> posts = await dbSet.Where(r => r.Type == "post_user_request").AsNoTracking().ToListAsync(token);
             return posts.OrderByDescending(post => post.Date);
         }
     }

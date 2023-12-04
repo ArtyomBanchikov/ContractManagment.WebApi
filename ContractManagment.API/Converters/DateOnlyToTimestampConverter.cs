@@ -15,7 +15,7 @@ namespace ContractManagment.API.Converters
         public DateOnly Convert(int sourceMember, ResolutionContext context)
         {
             DateTime dateTime = new DateTime(1970, 1, 1);
-            dateTime.AddSeconds(sourceMember);
+            dateTime = dateTime.AddSeconds(sourceMember);
             return DateOnly.FromDateTime(dateTime);
         }
     }

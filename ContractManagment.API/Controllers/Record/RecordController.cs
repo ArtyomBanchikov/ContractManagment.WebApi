@@ -16,6 +16,5 @@ namespace ContractManagment.API.Controllers.Record
         public RecordController(IRecordService service, IMapper mapper) : base(service, mapper)
         {
         }
-        
     }
 }

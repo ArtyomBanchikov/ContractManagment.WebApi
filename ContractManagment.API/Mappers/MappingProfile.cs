@@ -39,7 +39,7 @@ namespace ContractManagment.API.Mappers
             CreateMap<RecordKeyViewModel, RecordKeyModel>();
             CreateMap<RecordKeyModel, RecordKeyViewModel>();
 
-            CreateMap<AccountTariffInternetModel, AccountTariffDigitalViewModel>();
+            CreateMap<AccountTariffInternetModel, AccountTariffInternetViewModel>();
             CreateMap<AccountTariffInternetViewModel, AccountTariffInternetModel>();
 
             CreateMap<TariffInternetViewModel, TariffInternetModel>();
