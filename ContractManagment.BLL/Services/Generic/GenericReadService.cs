@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.DAL.Infraestructure;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 using System;
 using System.Collections.Generic;
 using System.Linq;

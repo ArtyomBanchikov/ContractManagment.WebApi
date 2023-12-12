@@ -20,6 +20,8 @@ namespace ContractManagment.API.Mappers
         {
             CreateMap<PostViewModel, PostModel>();
             CreateMap<PostModel, PostViewModel>();
+            CreateMap<PostViewModel, LongRecordViewModel>()
+                .ConvertUsing<PostToLongRecordConverter>();
 
             CreateMap<PostMetaViewModel, PostMetaModel>();
             CreateMap<PostMetaModel, PostMetaViewModel>();
@@ -35,6 +37,8 @@ namespace ContractManagment.API.Mappers
 
             CreateMap<RecordViewModel, RecordModel>();
             CreateMap<RecordModel, RecordViewModel>();
+            CreateMap<RecordViewModel, LongRecordViewModel>()
+                .ConvertUsing<RecordToLongRecordConverter>();
 
             CreateMap<RecordKeyViewModel, RecordKeyModel>();
             CreateMap<RecordKeyModel, RecordKeyViewModel>();

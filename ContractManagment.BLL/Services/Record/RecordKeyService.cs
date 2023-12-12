@@ -3,7 +3,7 @@ using ContractManagment.BLL.Interfaces.Recrod;
 using ContractManagment.BLL.Models.Record;
 using ContractManagment.BLL.Services.Generic;
 using ContractManagment.DAL.Entities.Record;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 
 namespace ContractManagment.BLL.Services.Record
 {

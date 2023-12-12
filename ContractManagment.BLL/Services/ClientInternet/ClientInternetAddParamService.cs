@@ -3,7 +3,7 @@ using ContractManagment.BLL.Interfaces.ClientInternet;
 using ContractManagment.BLL.Models.ClientInternet;
 using ContractManagment.BLL.Services.Generic;
 using ContractManagment.DAL.Entities.ClientInternet;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 
 namespace ContractManagment.BLL.Services.ClientInternet
 {

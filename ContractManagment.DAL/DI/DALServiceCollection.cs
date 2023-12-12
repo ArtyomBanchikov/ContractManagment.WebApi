@@ -5,6 +5,7 @@ using ContractManagment.DAL.Entities.ClientInternet;
 using ContractManagment.DAL.Entities.Post;
 using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 using ContractManagment.DAL.Repositories;
 using ContractManagment.DAL.Repositories.ClientDigital;
 using ContractManagment.DAL.Repositories.ClientInternet;
@@ -36,10 +37,10 @@ namespace ContractManagment.DAL.DI
             services.AddScoped<IGenericRepository<ContractEntity>, ContractRepository>();
             services.AddScoped<IContractKeyRepository, ContractKeyRepository>();
 
-            services.AddScoped<IGenericRepository<RecordEntity>, RecordRepository>();
+            services.AddScoped<IRecordRepository, RecordRepository>();
             services.AddScoped<IGenericRepository<RecordKeyEntity>, RecordKeyRepository>();
 
-            services.AddScoped<IGenericReadRepository<PostEntity>, PostRepository>();
+            services.AddScoped<IPostRepository, PostRepository>();
             services.AddScoped<IGenericReadRepository<PostMetaEntity>, PostMetaRepository>();
 
             services.AddScoped<IGenericReadRepository<AccountTariffInternetEntity>, AccountTariffInternetRepository>();

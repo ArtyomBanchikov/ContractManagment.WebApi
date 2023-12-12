@@ -3,7 +3,7 @@ using ContractManagment.BLL.Interfaces;
 using ContractManagment.BLL.Models;
 using ContractManagment.BLL.Services.Generic;
 using ContractManagment.DAL.Entities;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 
 namespace ContractManagment.BLL.Services
 {

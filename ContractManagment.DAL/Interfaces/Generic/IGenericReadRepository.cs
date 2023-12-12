@@ -1,4 +1,4 @@
-﻿namespace ContractManagment.DAL.Interfaces
+﻿namespace ContractManagment.DAL.Interfaces.Generic
 {
     public interface IGenericReadRepository<TEntity> where TEntity : class
     {
