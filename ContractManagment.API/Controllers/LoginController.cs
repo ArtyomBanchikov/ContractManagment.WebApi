@@ -47,6 +47,7 @@ namespace ContractManagment.API.Controllers
                         LoginUserViewModel loginUser = _mapper.Map<LoginUserViewModel>(userVM);
                         loginUser.Token = token;
                         loginUser.Role = userDB.Role;
+                        loginUser.FIO = userDB.FIO;
                         return loginUser;
                     }
                 default:
