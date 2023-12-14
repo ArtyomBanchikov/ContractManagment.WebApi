@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace ContractManagment.DAL.Entities
 {
@@ -9,5 +10,9 @@ namespace ContractManagment.DAL.Entities
         public string Name { get; set; } = null!;
         public string Key { get; set; } = null!;
         public List<ContractEntity>? Contracts { get; set; }
+
+        [Required]
+        [DefaultValue(true)]
+        public bool IsAllowToDelete { get; set; }
     }
 }
