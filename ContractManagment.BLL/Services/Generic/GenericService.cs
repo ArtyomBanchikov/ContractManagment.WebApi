@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using ContractManagment.BLL.Interfaces.Generic;
 using ContractManagment.DAL.Infraestructure;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 
 namespace ContractManagment.BLL.Services.Generic
 {

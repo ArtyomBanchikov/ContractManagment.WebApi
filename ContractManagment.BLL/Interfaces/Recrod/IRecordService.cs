@@ -5,5 +5,6 @@ namespace ContractManagment.BLL.Interfaces.Recrod
 {
     public interface IRecordService : IGenericService<RecordModel>
     {
+        Task<IEnumerable<RecordModel>> GetByFilter(string keyName, string keyValue, CancellationToken token);
     }
 }

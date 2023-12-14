@@ -1,5 +1,5 @@
 ﻿using ContractManagment.DAL.EF;
-using ContractManagment.DAL.Interfaces;
+using ContractManagment.DAL.Interfaces.Generic;
 using Microsoft.EntityFrameworkCore;
 
 namespace ContractManagment.DAL.Repositories.Generic
