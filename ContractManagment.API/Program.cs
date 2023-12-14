@@ -43,7 +43,9 @@ builder.Services.AddAuthentication(options =>
     });
 builder.Services.AddAuthorization();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 builder.Services.AddAutoMapper(typeof(ContractManagment.BLL.Mappers.MappingProfile), typeof(ContractManagment.API.Mappers.MappingProfile));
 
 builder.Services.AddEndpointsApiExplorer();
