@@ -27,7 +27,7 @@ namespace ContractManagment.API.Controllers.Post
             var records = _mapper.Map<IEnumerable<PostViewModel>>(models);
             return _mapper
                 .Map<IEnumerable<LongRecordViewModel>>(records)
-                .Where(record => record.Record.RecordKeys.FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value == keyValue) != null);
+                .Where(record => record.Record.RecordKeys.FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value.Contains(keyValue)) != null);
         }
 
         [HttpGet]
