@@ -26,8 +26,10 @@ namespace ContractManagment.API.Controllers.Post
             var models = await _service.GetByFilter(cancellationToken);
             var records = _mapper.Map<IEnumerable<PostViewModel>>(models);
             return _mapper
-                .Map<IEnumerable<LongRecordViewModel>>(records)
-                .Where(record => record.Record.RecordKeys.FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value.Contains(keyValue)) != null);
+                .Map<IEnumerable<LongRecordViewModel>>(records
+                .OrderByDescending(record => record.Date))
+                .Where(record => record.Record.RecordKeys
+                .FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value.IndexOf(keyValue, StringComparison.OrdinalIgnoreCase) >= 0) != null);
         }
 
         [HttpGet]
