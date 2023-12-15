@@ -44,7 +44,7 @@ namespace ContractManagment.DAL.Repositories.Record
         {
             List<RecordEntity> records = await dbSet
                 .Include(record => record.RecordKeys)
-                .Where(record => record.RecordKeys.FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value == keyValue) != null)
+                .Where(record => record.RecordKeys.FirstOrDefault(recordKey => recordKey.Name == keyName && recordKey.Value.Contains(keyValue)) != null)
                 .ToListAsync(token);
             return records;
         }
