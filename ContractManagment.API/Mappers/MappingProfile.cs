@@ -50,9 +50,9 @@ namespace ContractManagment.API.Mappers
             CreateMap<TariffInternetModel, TariffInternetViewModel>();
 
             CreateMap<ClientInternetModel, ClientInternetViewModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateOnlyConverter, int>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateTimeConverter, int>());
             CreateMap<ClientInternetViewModel, ClientInternetModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateOnlyToTimestampConverter, DateOnly>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateTimeToTimestampConverter, DateTime>());
 
             CreateMap<InternetAddParamModel, InternetAddParamViewModel>();
             CreateMap<InternetAddParamViewModel, InternetAddParamModel>();
@@ -71,9 +71,9 @@ namespace ContractManagment.API.Mappers
             CreateMap<TariffDigitalModel, TariffDigitalViewModel>();
 
             CreateMap<ClientDigitalModel, ClientDigitalViewModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateOnlyConverter, int>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateTimeConverter, int>());
             CreateMap<ClientDigitalViewModel, ClientDigitalModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateOnlyToTimestampConverter, DateOnly>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateTimeToTimestampConverter, DateTime>());
 
             CreateMap<DigitalAddParamModel, DigitalAddParamViewModel>();
             CreateMap<DigitalAddParamViewModel, DigitalAddParamModel>();
