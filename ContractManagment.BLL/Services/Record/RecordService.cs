@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ContractManagment.BLL.Interfaces.Recrod;
 using ContractManagment.BLL.Models.Record;
+using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Interfaces;
 
 namespace ContractManagment.BLL.Services.Record
@@ -16,14 +17,18 @@ namespace ContractManagment.BLL.Services.Record
             _mapper = mapper;
         }
 
-        public Task<RecordModel> CreateAsync(RecordModel model, CancellationToken ct)
+        public async Task<RecordModel> CreateAsync(RecordModel model, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var resultEntity = await _repository.CreateAsync(_mapper.Map<RecordEntity>(model), ct);
+
+            return _mapper.Map<RecordModel>(resultEntity);
         }
 
-        public Task DeleteByIdAsync(int id, CancellationToken ct)
+        public async Task DeleteByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var resultEntity = await _repository.GetByIdAsync(id, ct);
+
+            await _repository.DeleteAsync(resultEntity, ct);
         }
 
         public async Task<IEnumerable<RecordModel>> GetAllAsync(CancellationToken ct)
@@ -39,14 +44,20 @@ namespace ContractManagment.BLL.Services.Record
             return _mapper.Map<IEnumerable<RecordModel>>(result);
         }
 
-        public Task<RecordModel> GetByIdAsync(int id, CancellationToken ct)
+        public async Task<RecordModel> GetByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var resultEntity = await _repository.GetByIdAsync(id, ct);
+
+            return _mapper.Map<RecordModel>(resultEntity);
         }
 
-        public Task<RecordModel> UpdateAsync(int id, RecordModel model, CancellationToken ct)
+        public async Task<RecordModel> UpdateAsync(int id, RecordModel model, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            var entity = _mapper.Map<RecordEntity>(model);
+
+            var resultEntity = await _repository.UpdateAsync(entity, ct);
+
+            return _mapper.Map<RecordModel>(resultEntity);
         }
     }
 }
