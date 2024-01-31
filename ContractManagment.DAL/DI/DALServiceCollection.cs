@@ -2,6 +2,7 @@
 using ContractManagment.DAL.Entities;
 using ContractManagment.DAL.Entities.ClientDigital;
 using ContractManagment.DAL.Entities.ClientInternet;
+using ContractManagment.DAL.Entities.ClientIPTV;
 using ContractManagment.DAL.Entities.Post;
 using ContractManagment.DAL.Entities.Record;
 using ContractManagment.DAL.Interfaces;
@@ -9,6 +10,7 @@ using ContractManagment.DAL.Interfaces.Generic;
 using ContractManagment.DAL.Repositories;
 using ContractManagment.DAL.Repositories.ClientDigital;
 using ContractManagment.DAL.Repositories.ClientInternet;
+using ContractManagment.DAL.Repositories.ClientIPTV;
 using ContractManagment.DAL.Repositories.Post;
 using ContractManagment.DAL.Repositories.Record;
 using Microsoft.EntityFrameworkCore;
@@ -54,6 +56,12 @@ namespace ContractManagment.DAL.DI
             services.AddScoped<IGenericReadRepository<ClientDigitalEntity>, ClientDigitalRepository>();
             services.AddScoped<IGenericReadRepository<DigitalAddParamEntity>, DigitalAddParamRepository>();
             services.AddScoped<IGenericReadRepository<ClientDigitalAddParamEntity>, ClientDigitalAddParamRepository>();
+
+            services.AddScoped<IGenericReadRepository<AccountTariffIPTVEntity>, AccountTariffIPTVRepository>();
+            services.AddScoped<IGenericReadRepository<TariffIPTVEntity>, TariffIPTVRepository>();
+            services.AddScoped<IGenericReadRepository<ClientIPTVEntity>, ClientIPTVRepository>();
+            services.AddScoped<IGenericReadRepository<IPTVAddParamEntity>, IPTVAddParamRepository>();
+            services.AddScoped<IGenericReadRepository<ClientIPTVAddParamEntity>, ClientIPTVAddParamRepository>();
 
             services.AddScoped<IGenericRepository<UserEntity>, UserRepository>();
 

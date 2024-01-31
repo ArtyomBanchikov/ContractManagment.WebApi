@@ -2,11 +2,13 @@
 using ContractManagment.BLL.Models;
 using ContractManagment.BLL.Models.ClientDigital;
 using ContractManagment.BLL.Models.ClientInternet;
+using ContractManagment.BLL.Models.ClientIPTV;
 using ContractManagment.BLL.Models.Post;
 using ContractManagment.BLL.Models.Record;
 using ContractManagment.DAL.Entities;
 using ContractManagment.DAL.Entities.ClientDigital;
 using ContractManagment.DAL.Entities.ClientInternet;
+using ContractManagment.DAL.Entities.ClientIPTV;
 using ContractManagment.DAL.Entities.Post;
 using ContractManagment.DAL.Entities.Record;
 
@@ -31,7 +33,7 @@ namespace ContractManagment.BLL.Mappers
             CreateMap<PostMetaEntity, PostMetaModel>();
             CreateMap<PostMetaModel, PostMetaEntity>();
 
-            CreateMap<AccountTariffInternetModel, AccountTariffDigitalEntity>();
+            CreateMap<AccountTariffInternetModel, AccountTariffInternetEntity>();
             CreateMap<AccountTariffInternetEntity, AccountTariffInternetModel>();
 
             CreateMap<TariffInternetEntity,  TariffInternetModel>();
@@ -60,6 +62,21 @@ namespace ContractManagment.BLL.Mappers
 
             CreateMap<DigitalAddParamEntity, DigitalAddParamModel>();
             CreateMap<DigitalAddParamModel, DigitalAddParamEntity>();
+
+            CreateMap<AccountTariffIPTVModel, AccountTariffIPTVEntity>();
+            CreateMap<AccountTariffIPTVEntity, AccountTariffIPTVModel>();
+
+            CreateMap<TariffIPTVEntity, TariffIPTVModel>();
+            CreateMap<TariffIPTVModel, TariffIPTVEntity>();
+
+            CreateMap<ClientIPTVEntity, ClientIPTVModel>();
+            CreateMap<ClientIPTVModel, ClientIPTVEntity>();
+
+            CreateMap<ClientIPTVAddParamEntity, ClientIPTVAddParamModel>();
+            CreateMap<ClientIPTVAddParamModel, ClientIPTVAddParamEntity>();
+
+            CreateMap<IPTVAddParamEntity, IPTVAddParamModel>();
+            CreateMap<IPTVAddParamModel, IPTVAddParamEntity>();
 
             CreateMap<UserEntity, UserModel>();
             CreateMap<UserModel, UserEntity>();

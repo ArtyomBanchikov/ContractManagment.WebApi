@@ -3,12 +3,14 @@ using ContractManagment.API.Converters;
 using ContractManagment.API.ViewModel;
 using ContractManagment.API.ViewModel.ClientDigital;
 using ContractManagment.API.ViewModel.ClientInternet;
+using ContractManagment.API.ViewModel.ClientIPTV;
 using ContractManagment.API.ViewModel.PostViewModels;
 using ContractManagment.API.ViewModel.Record;
 using ContractManagment.API.ViewModel.User;
 using ContractManagment.BLL.Models;
 using ContractManagment.BLL.Models.ClientDigital;
 using ContractManagment.BLL.Models.ClientInternet;
+using ContractManagment.BLL.Models.ClientIPTV;
 using ContractManagment.BLL.Models.Post;
 using ContractManagment.BLL.Models.Record;
 
@@ -82,6 +84,27 @@ namespace ContractManagment.API.Mappers
                 .ForMember(x => x.ClientId, o => o.MapFrom(p => p.userid))
                 .ForMember(x => x.ParamId, o => o.MapFrom(p => p.paramid));
             CreateMap<ClientDigitalAddParamViewModel, ClientDigitalAddParamModel>()
+                .ForMember(x => x.userid, o => o.MapFrom(p => p.ClientId))
+                .ForMember(x => x.paramid, o => o.MapFrom(p => p.ParamId));
+
+            CreateMap<AccountTariffIPTVViewModel, AccountTariffIPTVModel>();
+            CreateMap<AccountTariffIPTVModel, AccountTariffIPTVViewModel>();
+
+            CreateMap<TariffIPTVViewModel, TariffIPTVModel>();
+            CreateMap<TariffIPTVModel, TariffIPTVViewModel>();
+
+            CreateMap<ClientIPTVModel, ClientIPTVViewModel>()
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateOnlyConverter, int>());
+            CreateMap<ClientIPTVViewModel, ClientIPTVModel>()
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateOnlyToTimestampConverter, DateOnly>());
+
+            CreateMap<IPTVAddParamModel, IPTVAddParamViewModel>();
+            CreateMap<IPTVAddParamViewModel, IPTVAddParamModel>();
+
+            CreateMap<ClientIPTVAddParamModel, ClientIPTVAddParamViewModel>()
+                .ForMember(x => x.ClientId, o => o.MapFrom(p => p.userid))
+                .ForMember(x => x.ParamId, o => o.MapFrom(p => p.paramid));
+            CreateMap<ClientIPTVAddParamViewModel, ClientIPTVAddParamModel>()
                 .ForMember(x => x.userid, o => o.MapFrom(p => p.ClientId))
                 .ForMember(x => x.paramid, o => o.MapFrom(p => p.ParamId));
 
