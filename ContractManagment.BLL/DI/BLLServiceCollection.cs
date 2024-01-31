@@ -1,11 +1,13 @@
 ﻿using ContractManagment.BLL.Interfaces;
 using ContractManagment.BLL.Interfaces.ClientDigital;
 using ContractManagment.BLL.Interfaces.ClientInternet;
+using ContractManagment.BLL.Interfaces.ClientIPTV;
 using ContractManagment.BLL.Interfaces.Post;
 using ContractManagment.BLL.Interfaces.Recrod;
 using ContractManagment.BLL.Services;
 using ContractManagment.BLL.Services.ClientDigital;
 using ContractManagment.BLL.Services.ClientInternet;
+using ContractManagment.BLL.Services.ClientIPTV;
 using ContractManagment.BLL.Services.Post;
 using ContractManagment.BLL.Services.Record;
 using ContractManagment.DAL.DI;
@@ -39,6 +41,12 @@ namespace ContractManagment.BLL.DI
             services.AddScoped<IClientDigitalService, ClientDigitalService>();
             services.AddScoped<IDigitalAddParamService, DigitalAddParamService>();
             services.AddScoped<IClientDigitalAddParamService, ClientDigitalAddParamService>();
+
+            services.AddScoped<IAccountTariffIPTVService, AccountTariffIPTVService>();
+            services.AddScoped<ITariffIPTVService, TariffIPTVService>();
+            services.AddScoped<IClientIPTVService, ClientIPTVService>();
+            services.AddScoped<IIPTVAddParamService, IPTVAddParamService>();
+            services.AddScoped<IClientIPTVAddParamService, ClientIPTVAddParamService>();
 
             services.AddScoped<IUserService, UserService>();
 
