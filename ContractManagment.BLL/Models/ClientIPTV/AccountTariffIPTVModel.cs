@@ -1,6 +1,6 @@
 ﻿namespace ContractManagment.BLL.Models.ClientIPTV
 {
-    internal class AccountTariffIPTVModel
+    public class AccountTariffIPTVModel
     {
         public int Id { get; set; }
         public int AccountId { get; set; }
