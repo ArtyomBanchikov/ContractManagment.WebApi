@@ -10,7 +10,7 @@ namespace ContractManagment.DAL.EF
         public DbSet<ClientIPTVAddParamEntity> IPTVAdditionalParameters { get; set; } = null!;
         public DbSet<AccountTariffIPTVEntity> AccountTariffsIPTV { get; set; } = null!;
         public DbSet<TariffIPTVEntity> TariffsIPTV { get; set; } = null!;
-        public BillingIPTVContext(DbContextOptions<BillingInternetContext> options) : base(options)
+        public BillingIPTVContext(DbContextOptions<BillingIPTVContext> options) : base(options)
         {
             Database.EnsureCreated();
         }

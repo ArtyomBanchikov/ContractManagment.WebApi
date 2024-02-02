@@ -35,6 +35,9 @@ namespace ContractManagment.DAL.DI
             var billingDigitalConnection = configuration.GetConnectionString("BillingDigitalConnection");
             services.AddDbContext<BillingDigitalContext>(c => c.UseMySql(billingDigitalConnection, new MySqlServerVersion(new Version(8, 0, 34))));
 
+            var billingIPTVConnection = configuration.GetConnectionString("BillingIPTVConnection");
+            services.AddDbContext<BillingIPTVContext>(c => c.UseMySql(billingIPTVConnection, new MySqlServerVersion(new Version(8, 0, 34))));
+
             services.AddScoped<IGenericRepository<KeyEntity>, KeyRepository>();
             services.AddScoped<IGenericRepository<ContractEntity>, ContractRepository>();
             services.AddScoped<IContractKeyRepository, ContractKeyRepository>();

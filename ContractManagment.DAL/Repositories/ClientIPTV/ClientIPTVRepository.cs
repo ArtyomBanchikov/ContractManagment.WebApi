@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContractManagment.DAL.Repositories.ClientIPTV
 {
-    internal class ClientIPTVRepository : GenericBillingIPTVRepository<ClientIPTVEntity>
+    public class ClientIPTVRepository : GenericBillingIPTVRepository<ClientIPTVEntity>
     {
         public ClientIPTVRepository(BillingIPTVContext context) : base(context)
         {
