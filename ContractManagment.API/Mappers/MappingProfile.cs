@@ -94,9 +94,9 @@ namespace ContractManagment.API.Mappers
             CreateMap<TariffIPTVModel, TariffIPTVViewModel>();
 
             CreateMap<ClientIPTVModel, ClientIPTVViewModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateOnlyConverter, int>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<TimestampToDateTimeConverter, int>());
             CreateMap<ClientIPTVViewModel, ClientIPTVModel>()
-                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateOnlyToTimestampConverter, DateOnly>());
+                .ForMember(x => x.ConnectDate, o => o.ConvertUsing<DateTimeToTimestampConverter, DateTime>());
 
             CreateMap<IPTVAddParamModel, IPTVAddParamViewModel>();
             CreateMap<IPTVAddParamViewModel, IPTVAddParamModel>();
